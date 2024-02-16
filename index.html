@@ -1,14 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Colorful Background</title>
+    <title>More Music</title>
     <style>
-        /* ... (keep your existing styles here) ... */
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+        }
+
+        body {
+            /* Linear gradient with lighter colors */
+            background: linear-gradient(45deg,
+                        rgba(255, 102, 102, 0.7),
+                        rgba(255, 178, 102, 0.7),
+                        rgba(255, 255, 102, 0.7),
+                        rgba(105, 105, 105, 0.7));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            position: relative; /* Enables absolute positioning of children */
+        }
+
+        .title {
+            font-size: 48px;
+            color: black;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: black;
+            text-align: center;
+            max-width: 60%;
+            margin-top: 10px;
+        }
+
+        .treble-clef {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            height: 100px; /* Adjust size as needed */
+        }
+
+        .spinning-globe {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            height: 100px; /* Adjust size as needed */
+            animation: spin 20s linear infinite;
+        }
 
         .panel-container {
             display: flex;
             justify-content: center;
-            margin-top: 100px; /* Adjust as necessary for your layout */
+            margin-top: 50px; /* Adjust as necessary for your layout */
+            width: 100%;
         }
 
         .panel {
@@ -19,6 +70,7 @@
             background-color: #fff; /* White background for readability */
             text-align: center;
             transition: transform 0.2s; /* Smooth transition for hover effect */
+            padding: 20px;
         }
 
         .panel:hover {
@@ -38,32 +90,42 @@
         .panel p {
             margin: 15px;
         }
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        @keyframes spin {
+            from {transform: rotate(0deg);}
+            to {transform: rotate(360deg);}
+        }
     </style>
 </head>
 <body>
-    <!-- ... (your existing HTML elements) ... -->
-
+    <div class="title">More Music</div>
+    <div class="subtitle">Get more from your music recommendations. Discover artists from around the world.</div>
     <div class="panel-container">
-        <a href="URL_FOR_MISSION" class="panel">
-            <img src="path_to_mission_image.png" alt="Our Mission">
+        <!-- Replace # with your URLs and path_to_your_image.png with the path to your images -->
+        <a href="#" class="panel">
+            <img src="path_to_your_mission_image.png" alt="Our Mission">
             <h3>Our Mission</h3>
             <p>Learn about our mission and purpose in providing globally inclusive music recommendations</p>
         </a>
 
-        <a href="URL_FOR_HOW_WE_WORK" class="panel">
-            <img src="path_to_how_we_work_image.png" alt="How We Work">
+        <a href="#" class="panel">
+            <img src="path_to_your_how_we_work_image.png" alt="How We Work">
             <h3>How We Work</h3>
             <p>Learn about how we work and how we can provide diverse music recommendations for you curated to your taste</p>
         </a>
 
-        <a href="URL_FOR_WEB_APP" class="panel">
-            <img src="path_to_web_app_image.png" alt="Try Our WebApp">
+        <a href="#" class="panel">
+            <img src="path_to_your_web_app_image.png" alt="Try Our WebApp">
             <h3>Try Our WebApp</h3>
             <p>Click here to try our webapp and get your own personally curated, novel, music recommendations</p>
         </a>
     </div>
-
-    <!-- ... (any additional HTML elements) ... -->
 </body>
 </html>
 
