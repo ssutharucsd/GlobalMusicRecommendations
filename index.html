@@ -41,21 +41,19 @@
 
         .panel-container {
             display: flex;
-            justify-content: center;
-            margin-top: 50px;
-            width: 100%;
+            justify-content: space-around; /* This will space out the panels evenly */
+            flex-wrap: wrap; /* Allows panels to wrap onto the next line if there isn't enough space */
+            margin-top: 50px; /* Adjust as necessary for your layout */
+            width: 80%; /* Adjust the width of the container if needed */
+            max-width: 1200px; /* Set a max-width to control the layout on larger screens */
         }
 
         .panel {
-            margin: 0 10px;
-            flex-basis: 60%; /* Adjusted from 30% to 33% to make panels longer */
-            border: 2px solid black;
-            border-radius: 10px;
-            background-color: #fff;
-            text-align: center;
-            transition: transform 0.2s;
-            padding: 20px;
-            box-sizing: border-box; /* Include padding and border in the width */
+            flex: 1; /* This allows the panel to grow */
+            min-width: 250px; /* Minimum width before wrapping */
+            max-width: 360px; /* Maximum width of the panel */
+            margin: 10px; /* Provide some space between panels */
+            /* ... (keep the rest of your panel styles) ... */
         }
 
         .panel:hover {
