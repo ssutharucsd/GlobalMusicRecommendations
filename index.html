@@ -14,7 +14,6 @@
         }
 
         body {
-            /* Linear gradient with lighter colors */
             background: linear-gradient(45deg,
                         rgba(255, 102, 102, 0.7),
                         rgba(255, 178, 102, 0.7),
@@ -22,7 +21,7 @@
                         rgba(105, 105, 105, 0.7));
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
-            position: relative; /* Enables absolute positioning of children */
+            position: relative;
         }
 
         .title {
@@ -40,55 +39,28 @@
             margin-top: 10px;
         }
 
-        .treble-clef {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            height: 100px; /* Adjust size as needed */
-        }
-
-        .spinning-globe {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            height: 100px; /* Adjust size as needed */
-            animation: spin 20s linear infinite;
-        }
-
         .panel-container {
             display: flex;
             justify-content: center;
-            margin-top: 50px; /* Adjust as necessary for your layout */
+            margin-top: 50px;
             width: 100%;
         }
 
         .panel {
             margin: 0 10px;
-            flex-basis: 30%;
-            border: 2px solid black; /* Adjust the border as you like */
-            border-radius: 10px; /* Rounded corners */
-            background-color: #fff; /* White background for readability */
+            flex-basis: 33%; /* Adjusted from 30% to 33% to make panels longer */
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color: #fff;
             text-align: center;
-            transition: transform 0.2s; /* Smooth transition for hover effect */
+            transition: transform 0.2s;
             padding: 20px;
+            box-sizing: border-box; /* Include padding and border in the width */
         }
 
         .panel:hover {
-            transform: scale(1.05); /* Slightly enlarge the panel on hover */
+            transform: scale(1.05);
             cursor: pointer;
-        }
-
-        .panel img {
-            width: 80%; /* Adjust the size of the image inside the panel */
-            margin-top: 15px;
-        }
-
-        .panel h3 {
-            margin-top: 15px;
-        }
-
-        .panel p {
-            margin: 15px;
         }
 
         @keyframes gradientBG {
@@ -96,18 +68,12 @@
             50% {background-position: 100% 50%;}
             100% {background-position: 0% 50%;}
         }
-
-        @keyframes spin {
-            from {transform: rotate(0deg);}
-            to {transform: rotate(360deg);}
-        }
     </style>
 </head>
 <body>
     <div class="title">More Music</div>
     <div class="subtitle">Get more from your music recommendations. Discover artists from around the world.</div>
     <div class="panel-container">
-        <!-- Replace # with your URLs and path_to_your_image.png with the path to your images -->
         <a href="#" class="panel">
             <img src="path_to_your_mission_image.png" alt="Our Mission">
             <h3>Our Mission</h3>
@@ -128,6 +94,7 @@
     </div>
 </body>
 </html>
+
 
 
 
