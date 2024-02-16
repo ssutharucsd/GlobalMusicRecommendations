@@ -3,6 +3,16 @@
 <head>
     <title>Colorful Background</title>
     <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+        }
+
         body {
             /* Linear gradient with lighter colors */
             background: linear-gradient(45deg,
@@ -10,29 +20,22 @@
                         rgba(255, 178, 102, 0.7), /* Lighter orange */
                         rgba(255, 255, 102, 0.7), /* Lighter yellow */
                         rgba(105, 105, 105, 0.7)); /* Softer black */
-            height: 100vh;
-            margin: 0;
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        }
+
+        .title {
+            font-size: 48px;
+            color: black;
+            margin-top: 20px; /* Adjust top margin to position the title */
             text-align: center;
-            padding-top: 50px; /* Adjust top padding as needed */
         }
 
-        h1 {
+        .subtitle {
+            font-size: 20px;
             color: black;
-            font-size: 2.5em; /* Adjust title size as needed */
-            margin: 0 0 10px 0; /* Adjust bottom margin to space out subtitle */
-        }
-
-        p {
-            color: black;
-            font-size: 1.2em; /* Adjust subtitle size as needed */
-            margin: 0;
-            max-width: 600px; /* Ensures text doesn't span too wide */
+            text-align: center;
+            max-width: 60%;
         }
 
         @keyframes gradientBG {
@@ -43,10 +46,8 @@
     </style>
 </head>
 <body>
-
-    <h1>More Music</h1>
-    <p>Get more from your music recommendations. Discover artists from around the world.</p>
-
+    <div class="title">More Music</div>
+    <div class="subtitle">Get more from your music recommendations. Discover artists from around the world.</div>
 </body>
 </html>
 
