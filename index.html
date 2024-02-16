@@ -3,75 +3,69 @@
 <head>
     <title>Colorful Background</title>
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            padding: 0;
+        /* ... (keep your existing styles here) ... */
+
+        .panel-container {
             display: flex;
-            flex-direction: column;
-            justify-content: start;
-            align-items: center;
+            justify-content: center;
+            margin-top: 100px; /* Adjust as necessary for your layout */
         }
 
-        body {
-            /* Linear gradient with lighter colors */
-            background: linear-gradient(45deg,
-                        rgba(255, 102, 102, 0.7),
-                        rgba(255, 178, 102, 0.7),
-                        rgba(255, 255, 102, 0.7),
-                        rgba(105, 105, 105, 0.7));
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            position: relative; /* Enables absolute positioning of children */
-        }
-
-        .title {
-            font-size: 48px;
-            color: black;
-            margin-top: 20px;
+        .panel {
+            margin: 0 10px;
+            flex-basis: 30%;
+            border: 2px solid black; /* Adjust the border as you like */
+            border-radius: 10px; /* Rounded corners */
+            background-color: #fff; /* White background for readability */
             text-align: center;
+            transition: transform 0.2s; /* Smooth transition for hover effect */
         }
 
-        .subtitle {
-            font-size: 20px;
-            color: black;
-            text-align: center;
-            max-width: 60%;
+        .panel:hover {
+            transform: scale(1.05); /* Slightly enlarge the panel on hover */
+            cursor: pointer;
         }
 
-        .treble-clef {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            height: 100px; /* Adjust size as needed */
+        .panel img {
+            width: 80%; /* Adjust the size of the image inside the panel */
+            margin-top: 15px;
         }
 
-        .spinning-globe {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            height: 100px; /* Adjust size as needed */
-            animation: spin 20s linear infinite;
+        .panel h3 {
+            margin-top: 15px;
         }
 
-        @keyframes gradientBG {
-            0% {background-position: 0% 50%;}
-            50% {background-position: 100% 50%;}
-            100% {background-position: 0% 50%;}
-        }
-
-        @keyframes spin {
-            from {transform: rotate(0deg);}
-            to {transform: rotate(360deg);}
+        .panel p {
+            margin: 15px;
         }
     </style>
 </head>
 <body>
-    <img src="treble_clef.png" alt="Treble Clef" class="treble-clef">
-    <img src="globe.png" alt="Spinning Globe" class="spinning-globe">
-    <div class="title">More Music</div>
-    <div class="subtitle">Get more from your music recommendations. Discover artists from around the world.</div>
+    <!-- ... (your existing HTML elements) ... -->
+
+    <div class="panel-container">
+        <a href="URL_FOR_MISSION" class="panel">
+            <img src="path_to_mission_image.png" alt="Our Mission">
+            <h3>Our Mission</h3>
+            <p>Learn about our mission and purpose in providing globally inclusive music recommendations</p>
+        </a>
+
+        <a href="URL_FOR_HOW_WE_WORK" class="panel">
+            <img src="path_to_how_we_work_image.png" alt="How We Work">
+            <h3>How We Work</h3>
+            <p>Learn about how we work and how we can provide diverse music recommendations for you curated to your taste</p>
+        </a>
+
+        <a href="URL_FOR_WEB_APP" class="panel">
+            <img src="path_to_web_app_image.png" alt="Try Our WebApp">
+            <h3>Try Our WebApp</h3>
+            <p>Click here to try our webapp and get your own personally curated, novel, music recommendations</p>
+        </a>
+    </div>
+
+    <!-- ... (any additional HTML elements) ... -->
 </body>
 </html>
+
 
 
