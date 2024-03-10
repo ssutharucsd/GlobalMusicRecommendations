@@ -83,10 +83,17 @@
             padding: 20px;
         }
 
+        .panel p,
+        .panel h3,
+        .additional-link,
+        .additional-link:visited { /* This will target the paragraphs, headings, and links in your panels */
+            color: #5C007A; /* Dark purple color */
+        }
+
         .panel-container .panel a, .panel-container .panel a:visited {
             text-decoration: none;
-            color: inherit;
-        }    
+            color: #5C007A; /* Also apply the dark purple color to the links */
+        }   
 
         .panel:hover {
             transform: scale(1.05); /* Slightly enlarge the panel on hover */
