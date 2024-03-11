@@ -126,11 +126,17 @@
     <div class="subtitle">Learn the overview of how we are able to provide globally diverse music recommendations curated to your taste here! </div>
     <div class="panel-container">
         <div class="panel">
-            <h3>Overview</h3>
+            <h3>Overview and Data Description</h3>
+            <h5>Here is a general outline of the steps we took in order to create our app and a description of the data we used:</h5>
             <ul>
-                <li>Overview bullet point 1</li>
-                <li>Overview bullet point 2</li>
-                <li>Overview bullet point 3</li>
+                <li>First, we chose a dataset upon which we could build our music recommendation algorithm </li>
+                <li>We used two datasets that originate from Last.fm, a music service that uses a technique called "scrobbling" to track users' music listening habits across various platforms and builds a detailed profile of their musical tastes</li>
+                <li>With the Last.fm API, we acquired a user dataset by first selecting a starting user and adding a randomized list of that user’s friends to the total user list.</li>
+                <li>In similar fashion, we got an artist dataset by using both the Last.fm API and MusicBrainz API.</li>
+                <li>Then, after performing data cleaning, preprocesing, and exploratory data analysis (detailed in our report), we were left with a data set consisting of the following variables: user, representing the user's ID; artist_name, the name of the artist; play_count, indicating the number of times the user has played the artist's tracks; artist_url, the URL to the artist's Last.fm page, artist_name, the name of the artist, and country_code, the code of the country of their nationality upon which we could build our music recommender model</li>
+                <li>Second, after the acquisition of our final dataset, we decided upon a basline machine learning model for our recommender system that would work best with our dataset so that we can have a basic music recommending system that we can later adapt to mitigate regional bias</li>
+                <li>Third, we mitigated the regional bias of this basline model</li>
+                <li>Fourth, we merged our debiased model with our webapp interface to present the webapp you see today!</li>
             </ul> 
             <img src="overview.jpg" alt="overview"> 
         </div>
@@ -149,10 +155,10 @@
             <h3>Model Debiasing</h3>
             <h5>In order to mitigate regional bias in our baseline model, we implemented the following 4 steps:</h5>
             <ul>
-                <li>1. Assigned initial values: We began by assigning each artist a base score establishing a preliminary ranking based on user preferences without regional considerations</li>
-                <li>2. Reweighting for Underrepresented countries: Next, we multiplied the base scores for artists from underrepresented countries by an underrepresented_weight hyperparameter to help prioritize artists from these countries</li>
-                <li>3. Popularity-based adjustment: We further adjusted each artist's score by a popularity_rank value, which is inversely proportional to their popularity within their home country. This means that artists like Taylor Swift, who have a large number of domestic favorites, would have their score reduced more than a less popular artist from the same country, such as At The Drive-In. The degree of this adjustment is governed by another hyperparameter, popularity_weight, following an exponential formula to ensure that minor differences in popularity are appropriately magnified and impact the final recommendation</li>
-                <li>4. Final Score Calculation: Finally, we calculated a popularity weighted score by multiplying the reweighted score by the popularity_rank. This step ensures a diverse range of artists are recommended, avoiding the dominance of only a few artists from any particular country, thus allowing for a recommendation list that reflects a broader international scope.</li>
+                <li> Assigned initial values: We began by assigning each artist a base score establishing a preliminary ranking based on user preferences without regional considerations</li>
+                <li> Reweighting for Underrepresented countries: Next, we multiplied the base scores for artists from underrepresented countries by an underrepresented_weight hyperparameter to help prioritize artists from these countries</li>
+                <li> Popularity-based adjustment: We further adjusted each artist's score by a popularity_rank value, which is inversely proportional to their popularity within their home country. This means that artists like Taylor Swift, who have a large number of domestic favorites, would have their score reduced more than a less popular artist from the same country, such as At The Drive-In. The degree of this adjustment is governed by another hyperparameter, popularity_weight, following an exponential formula to ensure that minor differences in popularity are appropriately magnified and impact the final recommendation</li>
+                <li> Final Score Calculation: Finally, we calculated a popularity weighted score by multiplying the reweighted score by the popularity_rank. This step ensures a diverse range of artists are recommended, avoiding the dominance of only a few artists from any particular country, thus allowing for a recommendation list that reflects a broader international scope.</li>
             </ul>
             <img src="model_debiasing.jpg" alt="model debiasing"> 
         </div>
