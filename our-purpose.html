@@ -111,28 +111,29 @@
             to {transform: rotate(360deg);}
         }
 
-        .panel-container {
+       .panel-container {
             display: flex;
-            justify-content: space-around; /* This will spread out your panels evenly */
-            align-items: flex-start; /* Align panels to the top */
-            flex-wrap: wrap; /* Allow panels to wrap on smaller screens */
-            width: 100%;
-            margin-top: 30px; /* Adjusted spacing */
-            padding: 0 10px; /* Padding on the sides */
-        }
+            flex-direction: row; /* Ensures that panels are laid out in a row */
+            justify-content: space-evenly; /* Distributes space evenly between and around panels */
+            align-items: flex-start; /* Aligns panels to the top */
+            flex-wrap: wrap; /* Allows panels to wrap onto the next line if not enough space */
+            width: 100%; /* Container takes full width of the viewport */
+            margin-top: 30px; /* Space from the top of the container */
+         }
 
         .panel {
-            width: 30%; /* Adjust the width of each panel */
-            min-width: 250px; /* Minimum width to prevent panels from becoming too narrow */
-            margin: 10px; /* Spacing around panels */
+            flex: 1; /* Each panel will grow to distribute space */
+            min-width: 300px; /* Minimum width of each panel */
+            max-width: 33%; /* Maximum width of each panel to allow for three panels in a row */
+            margin: 0 10px; /* Margin to the left and right of each panel */
             border: 2px solid black;
             border-radius: 10px;
             background-color: #fff;
             text-align: center;
             padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for depth */
-            transition: transform 0.3s; /* Smooth transition for hover effect */
+            box-sizing: border-box; /* Includes padding and border in the element's total width and height */
         }
+
     </style>
 </head>
 <body>
