@@ -172,27 +172,22 @@
          <div class="panel">
             <h3>Results/Discussion</h3>
             <h5>Here are the results and interpretations from our basline and debiased models:</h5>
-             <li> Firstly, we measured our model's performance using the following metrics- </li>
-             <li> Disparate Impact: assesses if an algorithm unintentionally discriminates against certain groups more than others (i.e. artists from underrepresented vs. artists from overrepresented countries), revealing potential bias in positive outcomes (i.e. the event in which an artist gets recommended)</li>
-             <li> Average Match Score: the mean of an artist’s score that determines how likely a user will like them </li>
-             <li> Mean Popularity Rank: shows how popular the artists recommended are based on average number of listeners the recommended artists have within the dataset</li>
-             <li> Here were our findings from both baseline and debiased models - </li>
-             <img src="summary_table.jpg" alt="summary table">
-             <li> As it can be seen...</li>
-             <li> Our disparate impact metric improved from 0.189 to 62.450, significantly enhancing visibility for underrepresented artists and promoting equitable recommendations.</li>
-             <li> There was a minor decline in Average Match Score score from 0.079 to 0.014 aligns with the broader goal of offering a diverse music selection over perfect matches.</li>
-             <li> Our mean popularity rank metric improved notably from 426.200 to 36.015, evidencing the model's success in recommending lesser-known artists fitting users' tastes, and broadening music discovery.</li>
-             <Li> Additionally, from the following graph - </Li>
-             <img src="poster_graph.jpg" alt="poster graph">
-             <li> It can be seen that underrepresented_weight which is *explanation of underrepresented weight here* has a high positive correlation with disparate impact, while popularity_weight doesn’t affect it as much indicating that *blank*.</li>
-             <li> Overall, it was concluded that there is roughly a 300x better outcome for artists from underrepresented countries because *blank*. </li>
             <ul>
-                <li> Assigned initial values: We began by assigning each artist a base score establishing a preliminary ranking based on user preferences without regional considerations</li>
-                <li> Reweighting for Underrepresented countries: Next, we multiplied the base scores for artists from underrepresented countries by an underrepresented_weight hyperparameter to help prioritize artists from these countries</li>
-                <li> Popularity-based adjustment: We further adjusted each artist's score by a popularity_rank value, which is inversely proportional to their popularity within their home country. This means that artists like Taylor Swift, who have a large number of domestic favorites, would have their score reduced more than a less popular artist from the same country, such as At The Drive-In. The degree of this adjustment is governed by another hyperparameter, popularity_weight, following an exponential formula to ensure that minor differences in popularity are appropriately magnified and impact the final recommendation</li>
-                <li> Final Score Calculation: Finally, we calculated a popularity weighted score by multiplying the reweighted score by the popularity_rank. This step ensures a diverse range of artists are recommended, avoiding the dominance of only a few artists from any particular country, thus allowing for a recommendation list that reflects a broader international scope.</li>
+                 <li> Firstly, we measured our model's performance using the following metrics- </li>
+                 <li> Disparate Impact: assesses if an algorithm unintentionally discriminates against certain groups more than others (i.e. artists from underrepresented vs. artists from overrepresented countries), revealing potential bias in positive outcomes (i.e. the event in which an artist gets recommended)</li>
+                 <li> Average Match Score: the mean of an artist’s score that determines how likely a user will like them </li>
+                 <li> Mean Popularity Rank: shows how popular the artists recommended are based on average number of listeners the recommended artists have within the dataset</li>
+                 <li> Here were our findings from both baseline and debiased models - </li>
+                 <img src="summary_table.jpg" alt="summary table">
+                 <li> As it can be seen...</li>
+                 <li> Our disparate impact metric improved from 0.189 to 62.450, significantly enhancing visibility for underrepresented artists and promoting equitable recommendations.</li>
+                 <li> There was a minor decline in Average Match Score score from 0.079 to 0.014 aligns with the broader goal of offering a diverse music selection over perfect matches.</li>
+                 <li> Our mean popularity rank metric improved notably from 426.200 to 36.015, evidencing the model's success in recommending lesser-known artists fitting users' tastes, and broadening music discovery.</li>
+                 <Li> Additionally, from the following graph - </Li>
+                 <img src="poster_graph.jpg" alt="poster graph">
+                 <li> It can be seen that underrepresented_weight which is *explanation of underrepresented weight here* has a high positive correlation with disparate impact, while popularity_weight doesn’t affect it as much indicating that *blank*.</li>
+                 <li> Overall, it was concluded that there is roughly a 300x better outcome for artists from underrepresented countries because *blank*. </li>
             </ul>
-            <img src="model_debiasing.jpg" alt="model debiasing"> 
         </div>
 
     </div>
