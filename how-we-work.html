@@ -123,70 +123,66 @@
 </head>
 <body>
     <div class="title">More Music - How We Work</div>
-    <div class="subtitle">Learn the overview of how we are able to provide globally diverse music recommendations curated to your taste here! </div>
+    <div class="subtitle">Learn about how we are able to provide globally diverse music recommendations curated to your taste here! </div>
     <div class="panel-container">
         <div class="panel">
             <h3>Overview and Data Description</h3>
-            <h5>Here is a general outline of the steps we took in order to create our app and a description of the data we used:</h5>
+            <h5>Here is a general outline of the steps we took in order to create our app and a description of the data we used</h5>
             <ul>
-                <li>First, we chose a dataset upon which we could build our music recommendation algorithm </li>
-                <li>We used two datasets that originate from Last.fm, a music service that uses a technique called "scrobbling" to track users' music listening habits across various platforms and builds a detailed profile of their musical tastes</li>
+                <li>First, we chose a dataset upon which we could build our music recommendation algorithm. </li>
+                <li>We used two datasets that originated from Last.fm, a music service that uses a technique called "scrobbling" to track users' music listening habits across various platforms and builds a detailed profile of their musical tastes.</li>
                 <li>With the Last.fm API, we acquired a user dataset by first selecting a starting user and adding a randomized list of that user’s friends to the total user list.</li>
-                <li>In similar fashion, we got an artist dataset by using both the Last.fm API and MusicBrainz API.</li>
-                <li>Then, after performing data cleaning, preprocesing, and exploratory data analysis (detailed in our report), we were left with a data set consisting of the following variables: user, representing the user's ID; artist_name, the name of the artist; play_count, indicating the number of times the user has played the artist's tracks; artist_url, the URL to the artist's Last.fm page, artist_name, the name of the artist, and country_code, and the code of the country of their nationality upon which we could build our music recommender model</li>
-                <li>Second, after the acquisition of our final dataset, we decided upon a basline machine learning model for our recommender system that would work best with our dataset so that we can have a basic music recommending system that we can later adapt to mitigate regional bias</li>
-                <li>Third, we mitigated the regional bias of this basline model</li>
+                <li>In similar fashion, we got an artist dataset by using both the Last.fm API and MusicBrainz (an open music encyclopedia that collects music metadata) API.</li>
+                <li>Then, after performing data cleaning, preprocesing, and exploratory data analysis (detailed in our report and highlighted in the images below), we were left with a dataset consisting of the following variables: user, representing the user's ID; artist_name, the name of the artist; play_count, indicating the number of times the user has played the artist's tracks; artist_url, the URL to the artist's Last.fm page, artist_name, the name of the artist; and country_code, the code of the country of artist's nationalities. In the end, our dataset consisted of 6,904 total users. This is the dataset upon which we could build our music recommender model.</li>
+                <li>Second, after the acquisition of our final dataset, we decided upon a basline machine learning method for our recommender system that would work best with our dataset so that we can have a basic recommender system upon which we later mitigate regional bias.</li>
+                <li>Third, we mitigated the regional bias of this basline model.</li>
                 <li>Fourth, we merged our debiased model with our webapp interface by *blank* to present the webapp you see today!</li>
             </ul> 
-            <img src="overview.jpg" alt="overview"> 
+            <img src="dataset_screenshot.jpg" alt="dataset screenshoy"> 
         </div>
 
         <div class="panel">
             <h3>Baseline Model Development</h3>
-            <h5>In order to build our baseline model, we took the following steps:</h5>
+            <h5>In order to build our baseline model, we took the following steps</h5>
             <ul>
-                <li>First, we built a machine learning method that would best work with our dataset</li>
-                <li>We decided upon a machine learning method known as singular value decomposition (SVD) which is essentially a machine learning method that finds the most important patterns in a collection of data which of often not immediately apparent.</li>
-                <li>We decided upon SVD for two main reasons: First, given the large size of our dataset (described below), it was beneficial for us to use SVD because it aids in computational efficiency due to its ability to perform dimensionality reduction without losing much important information. Second, using its ability to discover latent features, it allows us to uncover hidden patterns/features in the data which is useful for our model development given that the only features we had to work with to build our baseline model were the user, the artist name, and the play count. </li>
-                <li>For the acutal implementation of the SVD method, we applied the TruncatedSVD method from the sklearn.decomposition module to decompose our user-artist interaction matrix into lower-dimensional matrices representing latent factors associated with users and artists. </li>
+                <li>First, we decided upon a machine learning method that would best work with our dataset.</li>
+                <li>We decided upon a method known as singular value decomposition (SVD) which is essentially a machine learning method that finds the most important patterns in a collection of data which are often not immediately apparent.</li>
+                <li>We decided SVD for two main reasons: First, given the large size of our dataset, it was beneficial for us to use SVD because it aids in computational efficiency due to its ability to perform dimensionality reduction without losing much important information. Second, using its ability to discover latent features, it allows us to uncover hidden patterns/features in the data which is useful for our model development given that the only features we had to work with to build our baseline model were the user, the artist name, and the play count. </li>
+                <li>For the acutal implementation of the SVD method, we used Python and applied its TruncatedSVD method from its sklearn.decomposition module to decompose our user-artist interaction matrix into lower-dimensional matrices representing latent factors associated with users and artists. </li>
                 <li>This allowed us to predict how much a user with an inputted set of liked artists will enjoy every other artist in our dataset.</li>
-                <li>Specifically, we chose 50 as the number of latent factors for our model, since that was the “sweet spot” between balancing computational efficiency and quality of predictions. </li>
-                <li>We determined 50 to be the sweet spot by *blank*. </li>
-                <li>The main assumption we use behind implementing our SVD model however is that used in collaborative filtering which is when we assume that users with similar music listening patterns are likely to have similar preferences. Collaborative filtering is a popular framework used in many recommender systems</li>
-            </ul>
-            <img src="baseline_model_development.jpg" alt="baseline model development"> 
+                <li>One main assumption we use behind implementing our SVD model was that we assumed that users with similar music listening patterns are likely to have similar preferences. This is the idea behind 'collaborative filtering' which is a popular framework used in many recommender systems.</li>
+            </ul> 
         </div>
 
         <div class="panel">
             <h3>Model Debiasing</h3>
-            <h5>In order to mitigate regional bias in our baseline model, we implemented the following steps:</h5>
+            <h5>In order to mitigate regional bias in our baseline model, we implemented the following steps</h5>
             <ul>
-                <li> Assigned initial values: We began by assigning each artist a base score establishing a preliminary ranking based on user preferences without regional considerations</li>
-                <li> Reweighting for Underrepresented countries: Next, we multiplied the base scores for artists from underrepresented countries by an underrepresented_weight hyperparameter to help prioritize artists from these countries</li>
-                <li> Popularity-based adjustment: We further adjusted each artist's score by a popularity_rank value, which is inversely proportional to their popularity within their home country. This means that artists like Taylor Swift, who have a large number of domestic favorites, would have their score reduced more than a less popular artist from the same country, such as At The Drive-In. The degree of this adjustment is governed by another hyperparameter, popularity_weight, following an exponential formula to ensure that minor differences in popularity are appropriately magnified and impact the final recommendation</li>
+                <li> Assigned initial values: We began by assigning each artist a base score establishing a preliminary ranking based on user preferences without regional considerations.</li>
+                <li> Reweighting for Underrepresented countries: Next, we multiplied the base scores for artists from underrepresented countries by an underrepresented_weight hyperparameter to help prioritize artists from these countries.</li>
+                <li> Popularity-based adjustment: We further adjusted each artist's score by a popularity_rank value, which is inversely proportional to their popularity within their home country. This means that artists like Taylor Swift, who have a large number of domestic favorites, would have their score reduced more than a less popular artist from the same country, such as At The Drive-In. The degree of this adjustment was governed by another hyperparameter, popularity_weight, following an exponential formula to ensure that minor differences in popularity are appropriately magnified and impact the final recommendation.</li>
                 <li> Final Score Calculation: Finally, we calculated a popularity weighted score by multiplying the reweighted score by the popularity_rank. This step ensures a diverse range of artists are recommended, avoiding the dominance of only a few artists from any particular country, thus allowing for a recommendation list that reflects a broader international scope.</li>
-            </ul>
-            <img src="model_debiasing.jpg" alt="model debiasing"> 
+            </ul> 
         </div>
 
          <div class="panel">
             <h3>Results/Discussion</h3>
-            <h5>Here are the results and interpretations from our basline and debiased models:</h5>
+            <h5>Here are the results and interpretations from our basline and debiased models</h5>
             <ul>
-                 <li> Firstly, we measured our model's performance using the following metrics- </li>
-                 <li> Disparate Impact: assesses if an algorithm unintentionally discriminates against certain groups more than others (i.e. artists from underrepresented vs. artists from overrepresented countries), revealing potential bias in positive outcomes (i.e. the event in which an artist gets recommended)</li>
+                 <li> Firstly, we measured our model's performance using the following metrics: </li>
+                 <li> Disparate Impact: A metric that assesses if an algorithm unintentionally discriminates against certain groups more than others (i.e. artists from underrepresented vs. artists from overrepresented countries), revealing potential bias in positive outcomes (i.e. the event in which an artist gets recommended).</li>
                  <li> Average Match Score: the mean of an artist’s score that determines how likely a user will like them </li>
-                 <li> Mean Popularity Rank: shows how popular the artists recommended are based on average number of listeners the recommended artists have within the dataset</li>
-                 <li> Here were our findings from both baseline and debiased models - </li>
+                 <li> Mean Popularity Rank: A metric that shows how popular the artists recommended are, based on average number of listeners the recommended artists have within the dataset.</li>
+                 <li> Here were the results of these metrics from both baseline and debiased models: </li>
                  <img src="summary_table.jpg" alt="summary table">
                  <li> As it can be seen...</li>
                  <li> Our disparate impact metric improved from 0.189 to 62.450, significantly enhancing visibility for underrepresented artists and promoting equitable recommendations.</li>
-                 <li> There was a minor decline in Average Match Score score from 0.079 to 0.014 aligns with the broader goal of offering a diverse music selection over perfect matches.</li>
-                 <li> Our mean popularity rank metric improved notably from 426.200 to 36.015, evidencing the model's success in recommending lesser-known artists fitting users' tastes, and broadening music discovery.</li>
-                 <Li> Additionally, from the following graph - </Li>
+                 <li> There was a minor decline in Average Match Score score from 0.079 to 0.014 which aligns with our broader goal of offering a diverse music selection over perfect matches.</li>
+                 <li> Our mean popularity rank metric improved notably from 426.200 to 36.015, demonstrating the model's success in recommending lesser-known artists fitting users' tastes, and broadening music discovery.</li>
+                 <Li> Additionally, from the following graph... </Li>
                  <img src="poster_graph.jpg" alt="poster graph">
-                 <li> It can be seen that underrepresented_weight which is *explanation of underrepresented weight here* has a high positive correlation with disparate impact, while popularity_weight doesn’t affect it as much indicating that *blank*.</li>
-                 <li> Overall, it was concluded that there is roughly a 300x better outcome for artists from underrepresented countries because *blank*. </li>
+                 <li> It can be seen that underrepresented_weight has a high positive correlation with disparate impact while popularity_weight doesn’t affect it as much indicating that *blank*.</li>
+                 <li> Overall, it can be concluded that there is roughly a 300x better outcome for artists from underrepresented countries using our model because *blank*. </li>
             </ul>
         </div>
 
