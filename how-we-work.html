@@ -143,7 +143,7 @@
 
         <div class="panel">
             <h3>Baseline Model Development</h3>
-            <h5>In order to mitigate regional bias in our baseline model, we took the following steps:</h5>
+            <h5>In order to build our baseline model, we took the following steps:</h5>
             <ul>
                 <li>First, we built a machine learning method that would best work with our dataset</li>
                 <li>We decided upon a machine learning method known as singular value decomposition (SVD) which is essentially a machine learning method that finds the most important patterns in a collection of data which of often not immediately apparent.</li>
@@ -159,6 +159,18 @@
 
         <div class="panel">
             <h3>Model Debiasing</h3>
+            <h5>In order to mitigate regional bias in our baseline model, we implemented the following steps:</h5>
+            <ul>
+                <li> Assigned initial values: We began by assigning each artist a base score establishing a preliminary ranking based on user preferences without regional considerations</li>
+                <li> Reweighting for Underrepresented countries: Next, we multiplied the base scores for artists from underrepresented countries by an underrepresented_weight hyperparameter to help prioritize artists from these countries</li>
+                <li> Popularity-based adjustment: We further adjusted each artist's score by a popularity_rank value, which is inversely proportional to their popularity within their home country. This means that artists like Taylor Swift, who have a large number of domestic favorites, would have their score reduced more than a less popular artist from the same country, such as At The Drive-In. The degree of this adjustment is governed by another hyperparameter, popularity_weight, following an exponential formula to ensure that minor differences in popularity are appropriately magnified and impact the final recommendation</li>
+                <li> Final Score Calculation: Finally, we calculated a popularity weighted score by multiplying the reweighted score by the popularity_rank. This step ensures a diverse range of artists are recommended, avoiding the dominance of only a few artists from any particular country, thus allowing for a recommendation list that reflects a broader international scope.</li>
+            </ul>
+            <img src="model_debiasing.jpg" alt="model debiasing"> 
+        </div>
+
+         <div class="panel">
+            <h3>Results</h3>
             <h5>In order to mitigate regional bias in our baseline model, we implemented the following steps:</h5>
             <ul>
                 <li> Assigned initial values: We began by assigning each artist a base score establishing a preliminary ranking based on user preferences without regional considerations</li>
