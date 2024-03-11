@@ -110,6 +110,29 @@
             from {transform: rotate(0deg);}
             to {transform: rotate(360deg);}
         }
+
+        .panel-container {
+            display: flex;
+            justify-content: space-around; /* This will spread out your panels evenly */
+            align-items: flex-start; /* Align panels to the top */
+            flex-wrap: wrap; /* Allow panels to wrap on smaller screens */
+            width: 100%;
+            margin-top: 30px; /* Adjusted spacing */
+            padding: 0 10px; /* Padding on the sides */
+        }
+
+        .panel {
+            width: 30%; /* Adjust the width of each panel */
+            min-width: 250px; /* Minimum width to prevent panels from becoming too narrow */
+            margin: 10px; /* Spacing around panels */
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color: #fff;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for depth */
+            transition: transform 0.3s; /* Smooth transition for hover effect */
+        }
     </style>
 </head>
 <body>
