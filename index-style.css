@@ -46,6 +46,7 @@
             text-align: center;
         }
 
+
         .subtitle {
             width: 100%; /* Add this to ensure it takes the full width */
             font-size: 20px;
@@ -56,6 +57,7 @@
             margin-left: auto; /* Add this to ensure it is centered horizontally */
             margin-right: auto; /* Add this to ensure it is centered horizontally */
         }
+
         .subtitle, .subtitle2 {
             font-size: 20px;
             color: black;
