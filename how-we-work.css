@@ -1,0 +1,114 @@
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+        }
+
+        body {
+            /* Linear gradient with lighter colors */
+            background: linear-gradient(45deg,
+                        rgba(255, 102, 102, 0.7),
+                        rgba(255, 178, 102, 0.7),
+                        rgba(255, 255, 102, 0.7),
+                        rgba(105, 105, 105, 0.7));
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            position: relative; /* Enables absolute positioning of children */
+        }
+
+        .panel a:hover, .additional-link:hover {
+            font-weight: bold; /* Makes the text bolder */
+            font-size: 17px; /* Makes the text slightly larger */
+            transition: font-size 0.3s ease; /* Smooth transition for font resize */
+        }
+
+        .title {
+            font-size: 48px;
+            color: black;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: black;
+            text-align: center;
+            max-width: 60%;
+            margin-top: 10px;
+        }
+
+
+        .panel-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px; /* Adjust as necessary for your layout */
+            width: 100%;
+        }
+
+        .panel {
+            margin: 0 10px;
+            flex-basis: 30%;
+            border: 2px solid black; /* Adjust the border as you like */
+            border-radius: 10px; /* Rounded corners */
+            background-color: #fff; /* White background for readability */
+            text-align: center;
+            transition: transform 0.2s; /* Smooth transition for hover effect */
+            padding: 20px;
+        }
+
+        .panel ul {
+            text-align: left; /* Aligns bullet points to the left */
+            padding-left: 20px; /* Adjusts the position of the bullet points inside the panel */
+        }
+
+        .panel li {
+            margin-bottom: 15px; /* Adds more space between the bullet points */
+        }
+
+        .panel p,
+        .panel h3,
+        .additional-link,
+        .additional-link:visited { /* This will target the paragraphs, headings, and links in your panels */
+            color: #5C007A; /* Dark purple color */
+        }
+
+        .panel-container .panel a, .panel-container .panel a:visited {
+            text-decoration: none;
+            color: #5C007A; /* Also apply the dark purple color to the links */
+        }   
+
+        .panel:hover {
+            transform: scale(1.05); /* Slightly enlarge the panel on hover */
+            cursor: pointer;
+        }
+
+        .panel img {
+            width: 80%; /* Adjust the size of the image inside the panel */
+            margin-top: 15px;
+        }
+
+        .panel h3 {
+            margin-top: 15px;
+            color: #5C007A; /* Dark purple color */
+            border-bottom: 2px solid #5C007A; /* Adds a purple line under the text */
+            display: inline-block; /* Necessary for the border to fit the text length */
+            padding-bottom: 5px; /* Optional: Adds some space between the text and the underline */
+        }
+
+
+        .panel p {
+            margin: 15px;
+        }
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+    </style>
