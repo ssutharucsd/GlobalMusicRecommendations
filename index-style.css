@@ -10,7 +10,6 @@
         }
 
         body {
-            /* Linear gradient with lighter colors */
             background: linear-gradient(45deg,
                         rgba(255, 102, 102, 0.7),
                         rgba(255, 178, 102, 0.7),
@@ -18,25 +17,25 @@
                         rgba(105, 105, 105, 0.7));
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
-            position: relative; /* Enables absolute positioning of children */
+            position: relative; 
         }
 
         .additional-link {
-            display: block; /* Ensures the link is on a new line */
-            text-decoration: none; /* Removes the underline */
-            color: #5C007A; /* Dark purple color */
-            margin: 20px auto; /* Centers the link and adds space above and below */
-            font-size: 16px; /* Sets the font size */
-            font-weight: normal; /* Optional: Adjust the font weight as needed */
-            padding: 5px 0; /* Adds padding to make the clickable area larger */
-            text-align: center; /* Centers the text within the link */
-            max-width: 80%; /* Sets a maximum width for the links */
+            display: block; 
+            text-decoration: none; 
+            color: #5C007A;
+            margin: 20px auto; 
+            font-size: 16px; 
+            font-weight: normal; 
+            padding: 5px 0;
+            text-align: center; 
+            max-width: 80%;
         }  
 
         .panel a:hover, .additional-link:hover {
-            font-weight: bold; /* Makes the text bolder */
-            font-size: 17px; /* Makes the text slightly larger */
-            transition: font-size 0.3s ease; /* Smooth transition for font resize */
+            font-weight: bold; 
+            font-size: 17px; 
+            transition: font-size 0.3s ease; 
         }
 
         .title {
@@ -48,14 +47,14 @@
 
 
         .subtitle {
-            width: 100%; /* Add this to ensure it takes the full width */
+            width: 100%; 
             font-size: 20px;
             color: black;
             text-align: center;
-            max-width: 60%; /* You might want to remove this or increase it to ensure the text is properly centered */
+            max-width: 60%; 
             margin-top: 10px;
-            margin-left: auto; /* Add this to ensure it is centered horizontally */
-            margin-right: auto; /* Add this to ensure it is centered horizontally */
+            margin-left: auto; 
+            margin-right: auto; 
         }
 
         .subtitle, .subtitle2 {
@@ -68,49 +67,49 @@
         .panel-container {
             display: flex;
             justify-content: center;
-            margin-top: 50px; /* Adjust as necessary for your layout */
+            margin-top: 50px;
             width: 100%;
         }
 
         .panel {
             margin: 0 10px;
             flex-basis: 30%;
-            border: 2px solid black; /* Adjust the border as you like */
-            border-radius: 10px; /* Rounded corners */
-            background-color: #fff; /* White background for readability */
+            border: 2px solid black;
+            border-radius: 10px; 
+            background-color: #fff; 
             text-align: center;
-            transition: transform 0.2s; /* Smooth transition for hover effect */
+            transition: transform 0.2s; 
             padding: 20px;
         }
 
         .panel p,
         .panel h3,
         .additional-link,
-        .additional-link:visited { /* This will target the paragraphs, headings, and links in your panels */
-            color: #5C007A; /* Dark purple color */
+        .additional-link:visited { 
+            color: #5C007A; 
         }
 
         .panel-container .panel a, .panel-container .panel a:visited {
             text-decoration: none;
-            color: #5C007A; /* Also apply the dark purple color to the links */
+            color: #5C007A; 
         }   
 
         .panel:hover {
-            transform: scale(1.05); /* Slightly enlarge the panel on hover */
+            transform: scale(1.05); 
             cursor: pointer;
         }
 
         .panel img {
-            width: 80%; /* Adjust the size of the image inside the panel */
+            width: 80%; 
             margin-top: 15px;
         }
 
         .panel h3 {
             margin-top: 15px;
-            color: #5C007A; /* Dark purple color */
-            border-bottom: 2px solid #5C007A; /* Adds a purple line under the text */
-            display: inline-block; /* Necessary for the border to fit the text length */
-            padding-bottom: 5px; /* Optional: Adds some space between the text and the underline */
+            color: #5C007A; 
+            border-bottom: 2px solid #5C007A; 
+            display: inline-block; 
+            padding-bottom: 5px; 
         }
 
 
